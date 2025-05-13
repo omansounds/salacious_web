@@ -1,44 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+ <!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="MEDIA/web_icon.png">
-  <title>SALACIOUS NUMB</title>
-  <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="MEDIA/SN_ICON.JPG">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>SALACIOUS NUMB</title>
+    <link rel="stylesheet" href="CSS/style.css"/>
 </head>
 <body>
+   <div class="container">
+       <nav class="navbar">
+           <ul>
+               <li><a href="#home">Home</a></li>
+               <li><a href="#tones">Tones</a></li>
+               <li><a href="#live">Live</a></li>
+               <li><a href="#contact">Contact</a></li>
+           </ul>
+       </nav>
+       <section id="home">
+            <div class="video-container">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="MEDIA/VIDEOS/WEB_BG.mp4" type="video/mp4" width="100" height="100" /> 
+                    Your browser does not support HTML5 video.
+                </video>
 
-  <video autoplay muted loop playsinline preload="auto" id="bg-video">
-    <source src="VIDEOS/WEB_BG_2.mp4" type="video/mp4" />
-    Your browser does not support HTML5 video.
-  </video>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                      const video = document.getElementById("bg-video");
+                      // Attempt to play in case autoplay was blocked
+                      video.play().then(() => {
+                        console.log("Autoplay worked!");
+                      }).catch((error) => {
+                        console.warn("Autoplay failed, trying again after user interaction");
+                
+                        // Wait for user interaction to try again
+                        const tryPlay = () => {
+                          video.play().then(() => {
+                            console.log("Video played after user interaction.");
+                            document.removeEventListener('click', tryPlay);
+                            document.removeEventListener('touchstart', tryPlay);
+                          }).catch(err => {
+                            console.error("Still couldn't play:", err);
+                          });
+                        };
+                
+                        document.addEventListener('click', tryPlay);
+                        document.addEventListener('touchstart', tryPlay);
+                      });
+                    });
+                  </script>
+           </div>
+        </section>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const video = document.getElementById("bg-video");
-      // Attempt to play in case autoplay was blocked
-      video.play().then(() => {
-        console.log("Autoplay worked!");
-      }).catch((error) => {
-        console.warn("Autoplay failed, trying again after user interaction");
+        <section id="tones">
+            <h1>Tones</h1>
+            <p>c̶̡̞̬̼̪̥̯̜̲̭̖̰̘̫̰̞͆̾͑͊̈́͌̂̉͋̑̀̉͒̇̈́͑́̑̐̒̈́̆̚͠ͅǫ̶̧̣̜̻̘̭̹̖̤͍̤̲̗̭͍̲͍̭̠̾̂̂̑̇̐̑͑͒͘̕͠͠͝m̸̡̧̛̹̜̜̹͕͇͓̟̯̗̳̟͉̳͇̖̮̈͐́̆̽͒͛̅̆̔̌̀͋͋͑̒͆̅̇̈́́̅͑̅ͅe̴̡̟̙̜̖̰̙͚̺̻̺̺̞͈̥̫̙̦̖̺̗̳̘̺͍͖̠̱͐̈́̒͆̆̋̿̎̅̑̽̐̒̀̽̇̏̄̽̓͛͘̕͘͜͝͝͝͝͠ ̸̡̡̛͕͉̠̻͕̰͚͎͚͎̘̦͙͈̩͎̦͆̍g̴̡̢̟͙͈̩͉̮͎͈̩̝̺̭̭̱̖͚̘̝̫̬̣̜̬̗̏̒͌͆̕̚̚i̵͔̙̗͎̋̋̈́̂̅̌̽͗̃̅͂̎̕͝v̸̢̨̨̙͇̱̖͓̺̗͖̼̱̙̗̖͈̬͖̠̰̯̜̩̓̑͑͋́e̸͕̰̗͉̝̜̜̖̮̬̣̟̜̪̠̓͛̈́ ̸̫̟̳̺̬͙͍̘̔̈́͑̈́̎͐̑́͗̿̊̈́͐̄̔̈́̈́̿͒̄̅̆̕̕̕͝͠m̷̧͈͖̖̦͔͎̠̞̞͕̟͛̅̄̒̆̍̋̓͜a̷͎̪̤̱̔̋͂̅ͅm̸̛̛̥̘̣͉̐͛̀̾̽̈͑̆̉̒̀̏̑͑̍̈͌̀̚̕͝͝͝á̴̡̛̮̫͈̟̳̤͔̘͇̫͍͎͋͒̈́̆̈́̀͋̓̽́͋̎̆̚͜͜͝ͅ ̵̢̮̤̦̼̩͉͓̭̮͍̙̳̆̋̈́̀̎̊͋̾̑̄͐͂̇͗̓̌͆̕̚ͅá̵̢̢̡̛̘̭̭̐̀̂́̾̀̐͒̾́͑̓̋̽͐̏͂͘͜͜͝ ̷̧̙̯͙̝̝̀͊͆̄͆́͌̽̕ͅs̵̨̨̠̺̮͙͇̻͈̙͖̮̞͖̲̬̬͕̜̬̙̯̬̓̓́̿͋̂̀͗͐̂̀̎͒́͗̕͠c̴̺͇̦̝̥̩̩̃͊̀̇̀̄̄̿̈́̂̈́̂͘͠ȓ̸̨̪̥̟͔̫̬͎͙͙̂̃̀̓͗̀̀̆̈́̈͑͛͂͗̎̚͜͠͝͝ä̶̦͕̠̹̪̝́̋̒͛̑̌̎̕̚ṫ̴̨̧̛̖̟̹̘̟̠̳͇̙͈͍̝͎̘͚̼̫̟̪̖̹̀̈́̐́̽͛̌̉̿̍͗͘͜͝c̸̮͕̜̥̖̗̭̺̗͙̭̜̜̟͎̤͔̗̔̅̆͌͆̀́͋͊́̑̑͐̄̈͌͘͜͠ḩ̷̟͕̬̻̲͕͔̟̗͙̼͚̲͎̘̭̂̅͛͗̑̇ͅ</p>
+            <a href="https://soundcloud.com/salaciousnumb" target="_blank" rel="noopener noreferrer"><img src="ICONS/BLACK ICONS/soundcloud.png" alt=""></a>
+        </section>
 
-        // Wait for user interaction to try again
-        const tryPlay = () => {
-          video.play().then(() => {
-            console.log("Video played after user interaction.");
-            document.removeEventListener('click', tryPlay);
-            document.removeEventListener('touchstart', tryPlay);
-          }).catch(err => {
-            console.error("Still couldn't play:", err);
-          });
-        };
+        <section id="live">
+            <h1>Live</h1>
+            <p>Ţ̷̗̳͍̱͍̻͉͇͈̋́ǫ̷̻͉͈̥͍̯͖͎̇̽̈́͐̓̚ͅṃ̶̧̺̩̻͉̀̂̎͆̂͂͊̓ ̴̧͚̪͓̖̱̹͓͍̹̾̈́͂̏́̓J̸̟̮͚͈͔͖́̈́ō̷͕̖͕͍̭̐n̷̜̦͚̉͌̽̋̏͌̄̕̕e̶̠̰͉̻̱̔̈͗͐̎́̃͠s̵̡͖̩̺̝̪̼̼̉͘ͅ ̸͙̞̼̪̳͊ͅp̸̫͈̟̲͚͙̈̚l̷͕̺̫͚̍̉͋͛̍̌̓̀a̵͖̠͙̿̽̍̔̅̃y̷̺̮͓͑̆̈̚ṡ̵̼̠̒͝͝ ̵̧̼͈̬̗͖͐͌̏̈́̚̕̚l̴͖͖̲͔̤̫̒͝i̷̦͙̳̞͈̗̘͙͖̍̇̓̑̏̊̐̐̕v̸̗̭̀̅ę̷͐̋̍̒̉̈́̚ ̸̢̨̣̯͓͕̯͎̮̂̓̄̉̂̊̂̃̉͝ͅṣ̷̂̈̾ͅo̴̯̰͙̥̥̍͋̄̍̅̏̑͘ͅm̴̱̠̺͚͗̌̐́̇̔̚͝ͅë̸̛͇̗̦̞́͛̑̇̋̑̎̐̽t̷̨̛̰͕̦̳̖̤̥̼̭̏̓̔̌̂̑̃̕͠į̴̤̜̊̂́̊́̄̈́m̸̩̤̹̹̖͉̯͚̅̑̓̄́̐͜͠͝ȩ̶͓̟͚̙̖͈̥̈̂s̸̬͚͉̀̀̉͑͗͒̈́͠.̵̨̃̈́͌̊͋̓̈́̕</p>
+            <a href="https://ra.co/dj/salaciousnumb" target="_blank" rel="noopener noreferrer"><img src="ICONS/WHITE ICONS/ra.png" alt=""></a>
+        </section>
 
-        document.addEventListener('click', tryPlay);
-        document.addEventListener('touchstart', tryPlay);
-      });
-    });
-  </script>
+        <section id="contact">
+            <h1>Contact</h1>
+            <p>ẃ̶̨̠̠͙̔̈́̍̏̋̾̾ḧ̵̛̳͖͚̠́͆̒̀̇͠ơ̵͈͖̠͘͠ ̵̨̖̎͛͗̚͘ȩ̸͍͍̦̽̈͒̌͜ͅv̴̨̖̽̄͐͝e̴̳̩̲̔̚ņ̸̣̭̹͒͊̋ ̵̡̧̯̲͒͋̑̍͑͘g̵͇̙̊̒́͂̓̆̊̚i̶̡̤̣̗̳̱͋̍v̴̗͉̲͇̘̯̬̹̓̌̅ę̶̛̛̈͐͒͐̇͊͠s̷̢̛͔̦͙̍̏͆̕ ̶̨̝̲̯̞̯̘̫̖̾ǎ̶̡̻͙͓̣̼͚̜̾͒ ̶̡̢̺̞̩͎̇̆͝f̵̫̲̞͉̑̈̀̃̉́̽̑̓u̸̢͉̺̜̔̅̓͐̐̀͌̚c̴͉͎͕̹͈̞̤̐̌̍̀̆͋̾k̷͍̉͊<br> <a href="mailto:info@salaciousnumb.com?subject=yo%20y0%20yo%20y0&body=whaddup,,,,,,,">info@salaciousnumb.com</a> <br>@salaciousnumb</p>
+            <a href="https://www.instagram.com/salaciousnumb/" target="_blank" rel="noopener noreferrer"><img src="ICONS/BLACK ICONS/instagram.png" alt=""></a>
+        </section>
+    </div>
 
 </body>
 </html>
